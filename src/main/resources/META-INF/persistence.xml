@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence version="2.0"
+  xmlns="http://java.sun.com/xml/ns/persistence" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
+  http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+  <persistence-unit name="LikkhoServices" transaction-type="RESOURCE_LOCAL">
+    <class>com.likkhoServices.model.User</class>
+    <class>com.likkhoServices.model.Community</class>
+    <class>com.likkhoServices.model.Post</class>
+    <class>com.likkhoServices.model.Tag</class>
+    <class>com.likkhoServices.model.Like</class>
+    <class>com.likkhoServices.model.Comment</class>
+    
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <properties>
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="hibernate.connection.pool_size" value="10"/>
+        <property name="hibernate.maxActive" value="10" />
+
+        <!-- SQL dialect -->
+        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="hibernate.current_session_context_class" value="thread"/>
+
+        <!-- Disable the second-level cache  -->
+        <property name="hibernate.cache.provider_class" value="org.hibernate.cache.internal.NoCacheProvider"/>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="hibernate.show_sql" value="true"/>
+    </properties>
+
+  </persistence-unit>
+
+</persistence>
